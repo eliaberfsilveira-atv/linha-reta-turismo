@@ -1,0 +1,190 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   LINHA RETA TURISMO — Design Tokens
+   ============================================================ */
+:root {
+  --radius: 0.75rem;
+
+  /* Brand colors */
+  --lr-navy:       #003A5D;
+  --lr-navy-deep:  #002438;
+  --lr-ocean:      #00A7D8;
+  --lr-sky:        #BFEFFF;
+  --lr-sand:       #F8F4EA;
+  --lr-sand-warm:  #F1EADA;
+  --lr-sun:        #FFC247;
+  --lr-green:      #2E8B57;
+  --lr-coral:      #FF7A59;
+  --lr-ink:        #0E1F2C;
+  --lr-ink-soft:   #3A4D5C;
+}
+
+/* ============================================================
+   BASE
+   ============================================================ */
+@layer base {
+  * {
+    border-color: transparent;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-lr-sand text-lr-ink;
+    font-family: var(--font-sans, 'Poppins'), system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display, 'League Spartan'), sans-serif;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+/* ============================================================
+   UTILITIES
+   ============================================================ */
+@layer utilities {
+  .font-display { font-family: var(--font-display, 'League Spartan'), sans-serif; }
+  .font-serif   { font-family: var(--font-serif, 'Playfair Display'), serif; }
+
+  /* Scroll customizado */
+  .scrollbar-thin::-webkit-scrollbar { width: 6px; height: 6px; }
+  .scrollbar-thin::-webkit-scrollbar-track { @apply bg-transparent; }
+  .scrollbar-thin::-webkit-scrollbar-thumb { @apply bg-lr-ink/20 rounded-full; }
+
+  /* Gradient de texto */
+  .text-gradient-ocean {
+    background: linear-gradient(135deg, var(--lr-ocean), var(--lr-navy));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Efeito grain sutil para hero */
+  .grain::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    opacity: 0.3;
+  }
+
+  /* Animação reveal no scroll */
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.7s cubic-bezier(.2,.7,.3,1), transform 0.7s cubic-bezier(.2,.7,.3,1);
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ============================================================
+   COMPONENTES
+   ============================================================ */
+@layer components {
+  /* Botão primário */
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-6 py-3 rounded-full font-display font-bold text-sm uppercase tracking-widest;
+    @apply bg-lr-sun text-lr-navy;
+    @apply transition-all duration-200;
+    @apply hover:brightness-105 hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0;
+  }
+
+  /* Botão outline */
+  .btn-outline {
+    @apply inline-flex items-center gap-2 px-6 py-3 rounded-full font-display font-bold text-sm uppercase tracking-widest;
+    @apply border-2 border-white/60 text-white;
+    @apply transition-all duration-200;
+    @apply hover:bg-white/10 hover:border-white active:bg-white/5;
+  }
+
+  /* Card de destino */
+  .destination-card {
+    @apply relative overflow-hidden rounded-2xl bg-white shadow-sm;
+    @apply transition-all duration-300;
+    @apply hover:shadow-xl hover:-translate-y-1;
+  }
+
+  /* Badge */
+  .badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider;
+  }
+
+  /* Seção */
+  .section {
+    @apply py-20 md:py-28 px-4;
+  }
+
+  .section-title {
+    @apply font-display font-extrabold text-4xl md:text-5xl tracking-tight text-lr-navy;
+  }
+
+  .section-subtitle {
+    @apply text-lr-ink-soft text-lg leading-relaxed max-w-2xl;
+  }
+}
+
+/* ============================================================
+   TIPTAP EDITOR — Estilos do conteúdo do blog
+   ============================================================ */
+.tiptap-content {
+  @apply prose prose-lg max-w-none;
+  @apply prose-headings:font-display prose-headings:text-lr-navy prose-headings:tracking-tight;
+  @apply prose-p:text-lr-ink prose-p:leading-relaxed;
+  @apply prose-a:text-lr-ocean prose-a:no-underline hover:prose-a:underline;
+  @apply prose-strong:text-lr-navy;
+  @apply prose-blockquote:border-l-lr-ocean prose-blockquote:text-lr-ink-soft;
+  @apply prose-code:bg-lr-sky/30 prose-code:text-lr-navy prose-code:px-1 prose-code:rounded;
+  @apply prose-table:text-sm;
+  @apply prose-th:bg-lr-navy prose-th:text-white;
+  @apply prose-img:rounded-xl;
+}
+
+/* Destaque (highlight) dentro do blog */
+.tiptap-content mark {
+  @apply bg-lr-sun/40 text-lr-navy px-0.5 rounded;
+}
+
+/* ============================================================
+   ANIMAÇÕES
+   ============================================================ */
+@keyframes route-dash {
+  to { stroke-dashoffset: -40; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-8px); }
+}
+
+@keyframes shimmer {
+  from { background-position: -200% 0; }
+  to   { background-position:  200% 0; }
+}
+
+.animate-float { animation: float 4s ease-in-out infinite; }
+
+.skeleton {
+  background: linear-gradient(90deg, #f0ece0 25%, #e8e4d8 50%, #f0ece0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+}
