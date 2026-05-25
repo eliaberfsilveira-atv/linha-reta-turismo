@@ -4,6 +4,7 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { formatDate, whatsappUrl } from '@/lib/utils'
+import SchemaOrg from '@/components/public/SchemaOrg'
 
 export const revalidate = 60
 
@@ -79,6 +80,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
   return (
     <>
+      <SchemaOrg type="blog" data={{ title: post.title, excerpt: post.excerpt, image: post.cover_image_url, publishedAt: post.published_at, slug: post.slug }} />
       <section className="pt-20">
         {post.cover_image_url && (
           <div className="relative h-[50vh] min-h-[320px] max-h-[500px]">

@@ -4,6 +4,7 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { formatPrice, discountPercent, isPromotionActive, whatsappUrl } from '@/lib/utils'
+import SchemaOrg from '@/components/public/SchemaOrg'
 
 export const revalidate = 60
 
@@ -36,6 +37,7 @@ export default async function DestinoPage({ params }: { params: Promise<{ slug: 
 
   return (
     <>
+      <SchemaOrg type="destination" data={{ name: d.name, description: d.short_description, image: d.cover_image_url, price: d.base_price ?? undefined, slug: d.slug }} />
       {/* Hero */}
       <section className="relative h-[60vh] min-h-[400px]">
         {d.cover_image_url ? (
