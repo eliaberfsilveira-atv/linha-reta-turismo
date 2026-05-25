@@ -7,8 +7,8 @@ const anthropic = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY })
 
 // Verifica se o usuário é admin autenticado
 async function isAdmin(req: NextRequest): Promise<boolean> {
-  const cookieStore = cookies()
-  const supabase = createServerClient(
+  const cookieStore = await cookies()
+const supabase = createServerClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
     {
