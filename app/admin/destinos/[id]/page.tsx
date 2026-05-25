@@ -5,12 +5,13 @@ import Link from 'next/link'
 
 export const metadata = { title: 'Editar Destino — Admin' }
 
-export default async function EditDestinoPage({ params }: { params: { id: string } }) {
+export default async function EditDestinoPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params
   const supabase = await createClient()
   const { data: destination } = await supabase
     .from('destinations')
     .select('*')
-    .eq('id', params.id)
+    .eq('id', id)
     .single()
 
   if (!destination) notFound()
