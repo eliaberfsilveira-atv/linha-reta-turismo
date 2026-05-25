@@ -3,6 +3,9 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
 import { whatsappUrl, formatPrice, discountPercent, isPromotionActive } from '@/lib/utils'
+
+// Blur placeholder brand color para imagens externas
+const BLUR_URL = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAADCAYAAAC09K7GAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAOwgAADsIBFShKgAAAABh0RVh0U29mdHdhcmUAcGFpbnQubmV0IDQuMC45bDN+TgAAADNJREFUGFdjYGBg+M+ABzAyMjIwMDAQpQEAAAD//yMCAQAA//8jAgEAAAAA//8jAgEAAAAA'
 import type { Destination, Testimonial } from '@/types/database'
 import HeroContent from '@/components/animations/HeroContent'
 import HeroVideo from '@/components/animations/HeroVideo'
@@ -81,10 +84,12 @@ export default async function HomePage() {
               const displayPrice = hasPromo ? d.promotion_price! : d.base_price
               return (
                 <StaggerItem key={d.id}>
-                  <Link href={`/destinos/${d.slug}`} className="destination-card group block">
+                  <Link href={`/destinos/${d.slug}`} className="group block rounded-2xl overflow-hidden bg-white shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
                     <div className="relative h-52 overflow-hidden">
                       {d.cover_image_url ? (
-                        <Image src={d.cover_image_url} alt={d.name} fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
+                        <Image src={d.cover_image_url} alt={d.name} fill
+                          className="object-cover transition-transform duration-700 group-hover:scale-110"
+                          placeholder="blur" blurDataURL={BLUR_URL} />
                       ) : (
                         <div className="w-full h-full bg-lr-sky/30" />
                       )}

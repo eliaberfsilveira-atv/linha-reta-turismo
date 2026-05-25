@@ -1,6 +1,7 @@
 import { whatsappUrl } from '@/lib/utils'
 import SchemaOrg from '@/components/public/SchemaOrg'
 import AnimatedNav from '@/components/animations/AnimatedNav'
+import FloatingWhatsApp from '@/components/animations/FloatingWhatsApp'
 import Link from 'next/link'
 
 const WA = whatsappUrl()
@@ -10,6 +11,7 @@ export default function PublicLayout({ children }: { children: React.ReactNode }
     <>
       <SchemaOrg type="organization" />
       <AnimatedNav />
+      <FloatingWhatsApp />
       <main>{children}</main>
 
       {/* FOOTER */}

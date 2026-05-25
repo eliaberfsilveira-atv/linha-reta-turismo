@@ -64,6 +64,11 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="pt-BR" className={`${leagueSpartan.variable} ${poppins.variable} ${playfair.variable}`}>
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://dibikpzfbcaedlmsocji.supabase.co" />
+      </head>
       <body className="font-sans antialiased bg-lr-sand text-lr-ink">
         {children}
       </body>
