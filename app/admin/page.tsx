@@ -16,7 +16,7 @@ async function getStats() {
     subscriberCount:  subscribers.count || 0,
     publishedPosts:   posts.count || 0,
     activeDestinations: destinations.count || 0,
-    newLeadsCount:    leads.data?.filter(l => l.status === 'new').length || 0,
+    newLeadsCount:    leads.data?.filter((l: any) => l.status === 'new').length || 0,
   }
 }
 
