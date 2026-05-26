@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Fundo circular navy -->
+  <circle cx="50" cy="50" r="50" fill="#003A5D"/>
+
+  <!-- Onda oceano principal -->
+  <path d="M10 62 Q25 52 40 60 Q55 68 70 58 Q82 50 90 56 L90 80 Q70 72 55 80 Q38 88 20 78 Z" fill="#00A7D8"/>
+
+  <!-- Onda oceano clara (segunda) -->
+  <path d="M10 70 Q25 62 40 68 Q55 76 70 66 Q82 58 90 64 L90 85 Q70 78 55 86 Q38 94 20 84 Z" fill="#BFEFFF" opacity="0.6"/>
+
+  <!-- Sol dourado nascendo -->
+  <circle cx="50" cy="65" r="12" fill="#FFC247"/>
+  <path d="M38 65 Q50 53 62 65" fill="#003A5D"/>
+
+  <!-- Palmeira esquerda -->
+  <line x1="28" y1="68" x2="25" y2="42" stroke="#2E8B57" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M25 42 Q18 34 12 36 Q18 40 22 45" fill="#2E8B57"/>
+  <path d="M25 42 Q20 32 24 26 Q25 33 28 38" fill="#2E8B57"/>
+  <path d="M25 42 Q32 34 36 36 Q30 40 26 45" fill="#2E8B57"/>
+
+  <!-- Avião -->
+  <g transform="translate(52,22) rotate(-30)">
+    <!-- Fuselagem -->
+    <ellipse cx="0" cy="0" rx="14" ry="4.5" fill="white"/>
+    <!-- Asa principal -->
+    <path d="M-2 0 L-10 10 L8 6 Z" fill="white" opacity="0.9"/>
+    <!-- Asa traseira -->
+    <path d="M-8 0 L-14 5 L-4 3 Z" fill="white" opacity="0.9"/>
+    <!-- Janelas -->
+    <circle cx="2" cy="-1" r="1.2" fill="#00A7D8"/>
+    <circle cx="5" cy="-1" r="1.2" fill="#00A7D8"/>
+  </g>
+
+  <!-- Esteira do avião (linha reta curva) -->
+  <path d="M72 18 Q60 35 48 50" stroke="#BFEFFF" stroke-width="2" fill="none" stroke-dasharray="3,3" opacity="0.7" stroke-linecap="round"/>
+</svg>
