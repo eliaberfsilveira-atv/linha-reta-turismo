@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
+import Logo from '@/components/Logo'
 import { cn } from '@/lib/utils'
 
 const NAV = [
@@ -27,9 +28,14 @@ export default function AdminSidebar() {
     <aside className="fixed top-0 left-0 h-full w-64 flex flex-col z-20"
       style={{ background: '#002438', borderRight: '1px solid rgba(255,255,255,0.06)' }}>
       {/* Brand */}
-      <div className="px-6 py-7 border-b border-white/5">
-        <div className="font-display font-extrabold text-xl text-white tracking-tight">LINHA RETA</div>
-        <div className="text-lr-ocean text-[9px] font-semibold tracking-[0.35em] mt-0.5">TURISMO · ADMIN</div>
+      <div className="px-6 py-6 border-b border-white/5">
+        <div className="flex items-center gap-3">
+          <Logo size={36} variant="light" />
+          <div>
+            <div className="font-display font-extrabold text-lg text-white tracking-tight leading-none">LINHA RETA</div>
+            <div className="text-lr-ocean text-[9px] font-semibold tracking-[0.3em] mt-0.5">TURISMO · ADMIN</div>
+          </div>
+        </div>
       </div>
 
       {/* Nav */}
