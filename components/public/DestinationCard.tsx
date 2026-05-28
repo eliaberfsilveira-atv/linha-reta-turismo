@@ -4,6 +4,7 @@ import { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { formatPrice, discountPercent, isPromotionActive, whatsappUrl } from '@/lib/utils'
+import Tilt3D from '@/components/motion/Tilt3D'
 import PromoCountdown from '@/components/animations/PromoCountdown'
 import type { Destination } from '@/types/database'
 
@@ -22,6 +23,7 @@ export default function DestinationCard({ d }: { d: Destination }) {
   const waUrl        = whatsappUrl(`Olá! Tenho interesse no pacote para ${d.name}. Pode me passar mais informações?`)
 
   return (
+    <Tilt3D className="h-full">
     <Link href={`/destinos/${d.slug}`}
       className="group block rounded-2xl overflow-hidden bg-white shadow-sm transition-all duration-300 hover:shadow-2xl hover:-translate-y-1.5"
       onMouseEnter={() => setHovered(true)}
@@ -109,5 +111,6 @@ export default function DestinationCard({ d }: { d: Destination }) {
         </div>
       </div>
     </Link>
+    </Tilt3D>
   )
 }

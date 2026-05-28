@@ -8,6 +8,8 @@ import HeroVideo from '@/components/animations/HeroVideo'
 import LoadingScreen from '@/components/animations/LoadingScreen'
 import Reveal from '@/components/animations/Reveal'
 import { StaggerContainer, StaggerItem } from '@/components/animations/Stagger'
+import RevealMask from '@/components/motion/RevealMask'
+import Magnetic from '@/components/motion/Magnetic'
 import SearchBar from '@/components/public/SearchBar'
 import DestinationCard from '@/components/public/DestinationCard'
 
@@ -65,7 +67,7 @@ export default async function HomePage() {
         <div className="max-w-5xl mx-auto text-center">
           <Reveal>
             <div className="text-lr-ocean font-bold text-sm uppercase tracking-widest mb-3">Simples assim</div>
-            <h2 className="section-title text-white mb-4">Como funciona</h2>
+            <RevealMask delay={0.1} color="#003A5D"><h2 className="section-title text-white mb-4">Como funciona</h2></RevealMask>
             <p className="text-white/60 text-lg max-w-xl mx-auto mb-16">
               Da primeira mensagem até a volta pra casa, cuidamos de cada detalhe da sua viagem.
             </p>
@@ -109,7 +111,7 @@ export default async function HomePage() {
                     style={{ background: '#FF7A5920', color: '#FF7A59' }}>
                     🔥 Oferta por tempo limitado
                   </div>
-                  <h2 className="section-title">Promoções relâmpago</h2>
+                  <RevealMask delay={0.15} color="#FF7A59"><h2 className="section-title">Promoções relâmpago</h2></RevealMask>
                 </div>
               </Reveal>
               <Reveal delay={0.1}>
@@ -136,7 +138,7 @@ export default async function HomePage() {
             <Reveal>
               <div>
                 <div className="text-lr-ocean font-bold text-sm uppercase tracking-widest mb-2">Onde você quer ir?</div>
-                <h2 className="section-title">Destinos em destaque</h2>
+                <RevealMask delay={0.1} color="#00A7D8"><h2 className="section-title">Destinos em destaque</h2></RevealMask>
               </div>
             </Reveal>
             <Reveal delay={0.1}>
